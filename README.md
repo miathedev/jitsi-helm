@@ -1,7 +1,7 @@
 P.S. PRs with fixes or improvements are welcome ;-)
 
 # About
-A [Jitsi Meet](https://jitsi.org/jitsi-meet/) Chart for Kubernetes with 2 replicas of  [HAproxy](https://github.com/haproxytech/haproxy-docker-debian/tree/master/2.1) in peering. All Jitsi shards are in the backend via `server-template` in configuration.
+A [Jitsi Meet](https://jitsi.org/jitsi-meet/) Chart for Kubernetes with two replicas of  [HAproxy](https://github.com/haproxytech/haproxy-docker-debian/tree/master/2.1) in peering. All Jitsi shards are in the backend via `server-template` in configuration.
 
 This chart will install and configure: HAProxy statefulset, [Jicofo](https://github.com/jitsi/jicofo) deployment, [JVB](https://github.com/jitsi/jitsi-videobridge) statefulset (scalable), [web](https://hub.docker.com/r/jitsi/web/) interface, [prosody](https://hub.docker.com/r/jitsi/prosody/) XMPP server.
 
@@ -24,14 +24,14 @@ To install the chart in your terminal, go to the `jitsi-helm` repository and run
 helm install -n jitsi ./ --wait
 ```
 
-If you want to use your own custom watermark, first create configmap from your png file:
+If not to use your own custom watermark, first create configmap from your png file:
 
 ```bash
 kubectl create configmap -n <namespace> watermark --from-file=watermark.png
 ```
 
 
-It assumes that you have a [Nginx Ingress](https://docs.nginx.com/nginx-ingress-controller/overview/) controller and you use [CertManager](https://cert-manager.io/docs/installation/kubernetes/) along with [ACME](https://cert-manager.io/docs/configuration/acme/) issuer type for managing the HTTPS certificates.
+It assumes that you have a [Nginx Ingress](https://docs.nginx.com/nginx-ingress-controller/overview/) controller and you use [CertManager](https://cert-manager.io/docs/ination/kubernetes/) along with [ACME](https://cert-manager.io/docs/configuration/acme/) issuer type for managing the HTTPS certificates.
 
 Because `--wait` flag, the status will be given once Jisti Meet is ready.
 
@@ -56,7 +56,7 @@ The following table lists the configurable parameters of the Jitsi Meet chart an
 
 | Parameter                          | Description                                                    | Default           |
 |------------------------------------|----------------------------------------------------------------|-------------------|
-| `shardCount`                       | Number of shards                                               | `2`               |
+| `shardCont`                       | Number of shards                                               | `2`               |
 | `haproxy.image`                    | Docker image                                                   | `haproxy:2.1`     |
 | `ingress.enabled`                  | Enable ingress                                                 | `true`            |
 | `ingress.hosts`                    | List of hosts in this ingress                                  | empty             |
@@ -77,7 +77,7 @@ The following table lists the configurable parameters of the Jitsi Meet chart an
 | `prosody.image`                    | Prosody docker image                                           | `jitsi/prosody`   |
 | `prosody.image.imagePullPolicy`    | Prosody image pull policy                                      | `Always`          |
 | `prosody.extraEnvs`                | Extra env var for prosody deployment                           | `[]`              |
-| `prosody.extraVolumes`             | Additionnal volumes to the prosody deployment                  | `[]`              |
+| `prosody.extraVolumes`             | Additional volumes to the prosody deployment                  | `[]`              |
 | `prosody.extraVolumeMounts`        | Additional volume mounts to the prosody deployment             | `[]`              |
 | `prosody.globalModules`            | Additional global modules to enable on prosody                 | `[]`              |
 | `prosody.globalConfig`             | Additional global config parameters on prosody                 | `[]`              |
@@ -85,7 +85,7 @@ The following table lists the configurable parameters of the Jitsi Meet chart an
 | `web.image`                        | Web docker image                                               | `jitsi/web`       |
 | `web.image.imagePullPolicy`        | Web image pull policy                                          | `Always`          |
 | `web.extraEnvs`                    | Extra env var for web deployment                               | `[]`              |
-| `web.extraVolumes`                 | Additionnal volumes to the web deployment                      | `[]`              |
+| `web.extraVolumes`                 | Additional volumes to the web deployment                      | `[]`              |
 | `web.extraVolumeMounts`            | Additional volume mounts to the web deployment                 | `[]`              |
 | `watermark`                        | Watermark logo                                                 | `true`            |
 
