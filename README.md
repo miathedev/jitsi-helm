@@ -1,7 +1,7 @@
-P.S. PRs with fixes or improves are welcome ;-)
+P.S. PRs with fixes or improvements are welcome ;-)
 
 # About
-A [Jitsi Meet](https://jitsi.org/jitsi-meet/) Chart for Kubernetes with 2 replicas of  [HAproxy](https://github.com/haproxytech/haproxy-docker-debian/tree/master/2.1) in peering. All Jitsi shard are in backend via `server-template` in configuration.
+A [Jitsi Meet](https://jitsi.org/jitsi-meet/) Chart for Kubernetes with 2 replicas of  [HAproxy](https://github.com/haproxytech/haproxy-docker-debian/tree/master/2.1) in peering. All Jitsi shards are in the backend via `server-template` in configuration.
 
 This chart will install and configure: HAProxy statefulset, [Jicofo](https://github.com/jitsi/jicofo) deployment, [JVB](https://github.com/jitsi/jitsi-videobridge) statefulset (scalable), [web](https://hub.docker.com/r/jitsi/web/) interface, [prosody](https://hub.docker.com/r/jitsi/prosody/) XMPP server.
 
@@ -15,10 +15,10 @@ The setup shown above contains only a single shard (for visual clarity). Subsequ
 service. A more detailed explanation of the system architecture with multiple shards can be found in [architecture/architecture.md](architecture/architecture.md).
 
 ## Install chart
-To download and to install the Jitsi Meet Chart, make sure that you have the Helm CLI (v2+) installed and clone this repository on your machine.
+To download and install the Jitsi Meet Chart, make sure that you have the Helm CLI (v2+) installed and clone this repository on your machine.
 
 
-To install the chart, in your terminal, go to the `jitsi-helm` repository and run the following command:
+To install the chart in your terminal, go to the `jitsi-helm` repository and run the following command:
 
 ```bash
 helm install -n jitsi ./ --wait
